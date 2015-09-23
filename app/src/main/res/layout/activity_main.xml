@@ -1,26 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:fitsSystemWindows="true"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-    <android.support.design.widget.AppBarLayout android:layout_height="wrap_content"
-        android:layout_width="match_parent" android:theme="@style/AppTheme.AppBarOverlay">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
-            android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary" android:theme="@style/AppTheme.AppBarOverlay"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/AppTheme.AppBarOverlay"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff">
 
-    <android.support.design.widget.FloatingActionButton android:id="@+id/fab"
-        android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom" android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+        <LinearLayout
+            android:id="@+id/fragmentRoot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:id="@+id/bottomList"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_alignParentBottom="true"
+            android:background="#dc18f43d"
+            android:orientation="horizontal">
+
+            <LinearLayout style="@style/main_bottom_item">
+
+                <RadioButton
+                    android:id="@+id/firstPage"
+                    style="@style/foobar"
+                    android:text="首页" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/main_bottom_item">
+
+                <RadioButton
+                    android:id="@+id/record"
+                    style="@style/foobar"
+                    android:text="档案" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/main_bottom_item">
+
+                <RadioButton
+                    android:id="@+id/inquiry"
+                    style="@style/foobar"
+                    android:text="问诊" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/main_bottom_item">
+
+                <RadioButton
+                    android:id="@+id/service_package"
+                    style="@style/foobar"
+                    android:text="套餐" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/main_bottom_item">
+
+                <RadioButton
+                    android:id="@+id/personal_center"
+                    style="@style/foobar"
+                    android:text="我" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>
+

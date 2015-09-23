@@ -1,12 +1,15 @@
 package myphoto.xlab.wonders.com.myphoto;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.xlab.wonders.fullway.ui.R;
 
 import java.util.List;
 
@@ -15,11 +18,28 @@ import java.util.List;
  */
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHolder> {
 
+
+    /**
+     * ItemClick的回调接口
+     */
+    public interface OnItemClickLitener {
+        void onItemClick(View view, int position);
+    }
+
+    private OnItemClickLitener mOnItemClickLitener;
+
+    public void setmOnItemClickLitener(OnItemClickLitener mOnItemClickLitener) {
+
+        this.mOnItemClickLitener = mOnItemClickLitener;
+    }
+
+    private View.OnClickListener mOnClickListener;
+
     private LayoutInflater layoutInflater;
 
-    private List<Integer> mDatas;
+    private List<String> mDatas;
 
-    GalleryAdapter(Context context, List<Integer> mDatas) {
+    GalleryAdapter(Context context, List<String> mDatas) {
 
         this.layoutInflater = LayoutInflater.from(context);
         this.mDatas = mDatas;
@@ -51,8 +71,18 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
      * 设置值
      */
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-            holder.mImg.setImageResource(mDatas.get(position));
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
+        holder.mImg.setImageURI(Uri.parse(mDatas.get(position)));
+
+        //如果设置了回调，则设置点击事件
+        if (mOnItemClickLitener != null){
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOnItemClickLitener.onItemClick(holder.itemView,position);
+                }
+            });
+        }
 
     }
 

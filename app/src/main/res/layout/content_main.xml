@@ -12,16 +12,6 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/photo_recycleView"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_centerHorizontal="true"
-        android:background="#FF0000"
-        android:scrollbars="none" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+
 </RelativeLayout>
