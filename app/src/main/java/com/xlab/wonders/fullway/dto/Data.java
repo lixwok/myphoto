@@ -1,11 +1,14 @@
 package com.xlab.wonders.fullway.dto;
 
+import java.util.List;
+
 /**
  * Created by lixuanwu on 15/9/25.
  */
 public class Data {
 
     private int type;
+
 
     private int color;
 
