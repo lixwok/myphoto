@@ -36,6 +36,8 @@ public class ServicePackage extends Fragment {
 
     private List<Data> typeDatas;
 
+    private List<Data> typeDatas1;
+
     private ImageView imageView;
 
 
@@ -72,8 +74,6 @@ public class ServicePackage extends Fragment {
         //设置适配器
         GalleryAdapter adapter = new GalleryAdapter(getActivity(), typeDatas);
 
-//        PackageTypeAdapter packageTypeAdapter = new PackageTypeAdapter(getActivity(), typeDatas);
-
         recyclerView.setAdapter(adapter);
 
         //设置点击的监听
@@ -85,8 +85,9 @@ public class ServicePackage extends Fragment {
                 Toast.makeText(getActivity(), "我是:" + doctorName + ",约么？", Toast.LENGTH_SHORT).show();
             }
         });
+        PackageTypeAdapter packageTypeAdapter = new PackageTypeAdapter(getActivity(), typeDatas1);
 
-        myRecyclerView.setAdapter(adapter);
+        myRecyclerView.setAdapter(packageTypeAdapter);
 //        //设置滚动的监听
 //        myRecyclerView.setmOnItemScrollChangeListener(new MyRecyclerView.onItemScrollChangeListener() {
 //            @Override
@@ -108,14 +109,15 @@ public class ServicePackage extends Fragment {
             data.setType(1);
             typeDatas.add(data);
         }
-
+        typeDatas1 = new ArrayList<>();
         List<Integer> mData = new ArrayList<>(Arrays.asList(R.drawable.b, R.drawable.c, R.drawable.d, R.drawable.e));
         for (Integer m : mData) {
             Data data = new Data();
             data.setColor(Color.RED);
             data.setImg(m);
             data.setType(2);
-            typeDatas.add(data);
+            data.setTypeName("心理咨询");
+            typeDatas1.add(data);
         }
     }
 

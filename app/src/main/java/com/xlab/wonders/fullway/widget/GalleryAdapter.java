@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.xlab.wonders.fullway.dto.Data;
 import com.xlab.wonders.fullway.ui.R;
 
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -46,38 +45,26 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = null;
-        RecyclerView.ViewHolder viewHold = null;
-        if (viewType == 1) {
-            view = layoutInflater.inflate(R.layout.service_package_doctor, parent, false);
-            viewHold = new ViewHold(view);
-        } else if (viewType == 2) {
-            view = layoutInflater.inflate(R.layout.service_package_type, parent, false);
-            viewHold = new ViewHold1(view);
-        }
+
+        View view = layoutInflater.inflate(R.layout.service_package_doctor, parent, false);
+        RecyclerView.ViewHolder viewHold = new ViewHold(view);
+
         return viewHold;
     }
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
-        if (getItemViewType(position) == 1) {
-            final ViewHold viewHold = (ViewHold) holder;
-            if (mDatas.get(position).getType()==1){
-                viewHold.img.setImageResource(mDatas.get(position).getImg());
-            }
-            if (onItemClickLitener != null) {
-                viewHold.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        onItemClickLitener.onItemClick(holder.itemView, position, viewHold.txt.getText().toString());
-                    }
-                });
-            }
-        }else if (getItemViewType(position) == 2){
-            final ViewHold1 viewHold = (ViewHold1) holder;
-            if (mDatas.get(position).getType()==2){
-                viewHold.img.setImageResource(mDatas.get(position).getImg());
-            }
+        final ViewHold viewHold = (ViewHold) holder;
+        if (mDatas.get(position).getType() == 1) {
+            viewHold.img.setImageResource(mDatas.get(position).getImg());
+        }
+        if (onItemClickLitener != null) {
+            viewHold.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onItemClickLitener.onItemClick(holder.itemView, position, viewHold.txt.getText().toString());
+                }
+            });
         }
 
     }

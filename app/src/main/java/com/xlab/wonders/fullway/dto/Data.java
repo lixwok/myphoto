@@ -1,7 +1,5 @@
 package com.xlab.wonders.fullway.dto;
 
-import java.util.List;
-
 /**
  * Created by lixuanwu on 15/9/25.
  */
@@ -13,6 +11,8 @@ public class Data {
     private int color;
 
     private int img;
+
+    private String typeName;
 
     public int getType() {
         return type;
@@ -36,5 +36,13 @@ public class Data {
 
     public void setImg(int img) {
         this.img = img;
+    }
+
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
     }
 }

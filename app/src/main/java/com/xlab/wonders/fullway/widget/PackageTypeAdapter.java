@@ -5,11 +5,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.xlab.wonders.fullway.dto.Data;
 import com.xlab.wonders.fullway.ui.R;
 
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -37,6 +37,7 @@ public class PackageTypeAdapter extends RecyclerView.Adapter<PackageTypeAdapter.
 
         viewHolder.cImag = (CircleImageView) view.findViewById(R.id.circleImageView);
 
+        viewHolder.textView = (TextView) view.findViewById(R.id.packageType);
 
         return viewHolder;
     }
@@ -46,6 +47,8 @@ public class PackageTypeAdapter extends RecyclerView.Adapter<PackageTypeAdapter.
         Integer key = mDatas.get(position).getImg();
         holder.cImag.setImageResource(key);
         holder.cImag.setBorderColor(mDatas.get(position).getColor());
+        holder.textView.setText(mDatas.get(position).getTypeName());
+
     }
 
     @Override
@@ -60,5 +63,6 @@ public class PackageTypeAdapter extends RecyclerView.Adapter<PackageTypeAdapter.
         }
 
         private CircleImageView cImag;
+        private TextView textView;
     }
 }
